@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -25,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.daaprojectcompose.ui.theme.DAAprojectcomposeTheme
+import com.google.accompanist.flowlayout.FlowRow
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,16 +60,18 @@ class MainActivity : ComponentActivity() {
                     Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenHeightDp.dp/45))
                     OutlinedTextField(value = inputValue.value, onValueChange = {inputValue.value = it}, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
                     Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenHeightDp.dp/45))
-                    Row(
+                    LazyRow(
                         modifier = Modifier
                             .width(LocalConfiguration.current.screenWidthDp.dp - 40.dp)
                             .height(
                                 LocalConfiguration.current.screenHeightDp.dp / 30
-                            )
+                            ),
                     ) {
-                        sortedArray?.forEach { it->
-                            element(element = it)
-                            Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenWidthDp.dp/30))
+                        item {
+                            sortedArray?.forEach { it->
+                                element(element = it)
+                                Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenWidthDp.dp/30))
+                            }
                         }
                     }
                     Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenWidthDp.dp/30))
