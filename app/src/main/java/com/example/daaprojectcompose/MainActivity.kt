@@ -67,6 +67,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         sortedArray?.forEach { it->
                             element(element = it)
+                            Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenWidthDp.dp/30))
                         }
                     }
                     Button(onClick = {
