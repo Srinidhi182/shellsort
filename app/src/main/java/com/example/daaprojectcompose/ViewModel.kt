@@ -33,5 +33,8 @@ class ViewModel: ViewModel() {
         array1.value = array.toList()
     }
 
+    fun clearArray(){
+        array1.value = listOf()
+    }
 
 }
