@@ -70,6 +70,7 @@ class MainActivity : ComponentActivity() {
                             Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenWidthDp.dp/30))
                         }
                     }
+                    Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenWidthDp.dp/30))
                     Button(onClick = {
                         val li = inputValue.value.split(" ".toRegex())
                         li.forEachIndexed{ i, s ->
